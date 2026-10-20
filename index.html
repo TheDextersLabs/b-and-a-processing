@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="B & A Processing - Custom wild game and livestock meat processing by Bryce Michalak. Fast turnarounds, sanitary facility, specialty sausages, and secure payment portal.">
+    <meta name="robots" content="index, follow">
+    <title>B & A Processing | Custom Meat Processing & Payment Portal</title>
+    <style>
+        /* LAYER 1: COLOR PALETTE & GLOBAL VARIABLES */
+        :root {
+            --forest-dark: #1e351b;
+            --forest-primary: #2b4c27;
+            --rust-accent: #8b3a2b;
+            --parchment-bg: #f4f3ee;
+            --card-bg: #ffffff;
+            --text-main: #222222;
+            --text-muted: #555555;
+            --border-light: #e0ddd5;
+            --zelle-purple: #6d1ed5;
+            --venmo-blue: #008cff;
+            --cashapp-green: #00d632;
+            --square-black: #1a1a1a;
+            --paypal-blue: #003087;
+        }
+
+        /* LAYER 2: BASE RESET & MOBILE-FIRST LAYOUT */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--parchment-bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 16px;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+        }
+        .portal-wrapper {
+            width: 100%;
+            max-width: 540px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        /* LAYER 3: HEADER & SEASONAL URGENCY BANNER */
+        .seasonal-banner {
+            background-color: var(--rust-accent);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        header {
+            background-color: var(--forest-dark);
+            color: #ffffff;
+            text-align: center;
+            padding: 28px 20px 24px 20px;
+        }
+        header h1 {
+            margin: 0 0 8px 0;
+            font-size: 28px;
+            letter-spacing: 0.5px;
+        }
+        header p.subtitle {
+            margin: 0;
+            font-size: 15px;
+            color: #d8e2d5;
+            font-weight: 400;
+        }
+
+        /* LAYER 4: CONTENT SECTIONS & PAYMENT BUTTONS */
+        .content-body {
+            padding: 24px 20px;
+        }
+        .section-heading {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--forest-primary);
+            margin: 26px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--parchment-bg);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .section-heading:first-of-type {
+            margin-top: 0;
+        }
+        .pricing-note {
+            background-color: #faf9f5;
+            border-left: 4px solid var(--forest-primary);
+            padding: 12px 14px;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            border-radius: 0 8px 8px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s ease, opacity 0.2s ease;
+        }
+        .btn:active {
+            transform: scale(0.99);
+        }
+        .btn-cashapp {
+            background-color: var(--cashapp-green);
+            color: #111111;
+        }
+        .btn-venmo {
+            background-color: var(--venmo-blue);
+            color: #ffffff;
+        }
+        .btn-zelle {
+            background-color: var(--zelle-purple);
+            color: #ffffff;
+        }
+        .btn-square {
+            background-color: var(--square-black);
+            color: #ffffff;
+        }
+        .btn-paypal {
+            background-color: var(--paypal-blue);
+            color: #ffffff;
+        }
+        .zelle-helper {
+            font-size: 13px;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: -6px;
+            margin-bottom: 14px;
+        }
+        .cash-card {
+            background-color: #f9f9f7;
+            border: 1px solid var(--border-light);
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* LAYER 5: SPECIALTIES, SPECIES & PRIVACY BADGE */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .info-box {
+            background-color: #faf9f5;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 14px;
+        }
+        .info-box strong {
+            color: var(--forest-dark);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .info-box ul {
+            margin: 6px 0 0 0;
+            padding-left: 20px;
+        }
+        .info-box li {
+            margin-bottom: 4px;
+        }
+        .privacy-callout {
+            background-color: #eef3ed;
+            border: 1px solid #c9d8c6;
+            border-radius: 8px;
+            padding: 14px;
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--forest-dark);
+        }
+        .privacy-callout strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        /* LAYER 6: FOOTER & COPYRIGHT */
+        footer {
+            background-color: #f4f3ee;
+            border-top: 1px solid var(--border-light);
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .contact-links a {
+            color: var(--forest-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin: 2px 6px;
+        }
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="portal-wrapper">
+        <!-- Seasonal Status Banner -->
+        <div class="seasonal-banner">
+            Spaces Filling Fast — Fast Turnarounds &amp; Peak Sanitation Standards
+        </div>
+
+        <!-- Brand Header -->
+        <header>
+            <h1>B &amp; A Processing</h1>
+            <p class="subtitle">Ethical Field-to-Table Custom Meat Processing</p>
+        </header>
+
+        <div class="content-body">
+            <!-- Payment Section -->
+            <div class="section-heading">1. Quick &amp; Secure Payment Portal</div>
+            <div class="pricing-note">
+                <strong>Weigh-In &amp; Cut Consultation:</strong> Final pricing is discussed in person after weighing your harvest and choosing your custom breakdown—so you decide exactly what stays as prime steaks and roasts vs. ground burger or specialty sausage. Note your <strong>Name / Tag #</strong> in the payment memo!
+            </div>
+
+            <!-- Cash App Button -->
+            <a href="https://cash.app/$BryceMichalak" class="btn btn-cashapp" target="_blank" rel="noopener noreferrer">
+                Pay with Cash App ($BryceMichalak)
+            </a>
+
+            <!-- Venmo Button -->
+            <a href="https://venmo.com/u/brycemichalak" class="btn btn-venmo" target="_blank" rel="noopener noreferrer">
+                Pay with Venmo (@brycemichalak)
+            </a>
+
+            <!-- One-Tap Zelle Copy Button -->
+            <button type="button" class="btn btn-zelle" id="zelleBtn" onclick="copyZelle()">
+                Pay with Zelle (Tap to Copy Phone #)
+            </button>
+            <div class="zelle-helper" id="zelleStatus">
+                Zelle Number: <strong>470-439-4035</strong> (Bryce Michalak)
+            </div>
+
+            <!-- FUTURE SQUARE BUTTON (Remove comment arrows when ready to activate)
+            <a href="https://square.link/u/YOUR_SQUARE_LINK" class="btn btn-square" target="_blank" rel="noopener noreferrer">
+                Pay by Card / Apple Pay (Square)
+            </a>
+            -->
+
+            <!-- FUTURE PAYPAL BUTTON (Remove comment arrows when ready to activate)
+            <a href="https://paypal.me/YOUR_PAYPAL_HANDLE" class="btn btn-paypal" target="_blank" rel="noopener noreferrer">
+                Pay with PayPal
+            </a>
+            -->
+
+            <div class="cash-card">
+                <strong>Cash Always Welcome:</strong> In-person cash payments are gladly accepted at the shop during drop-off or pickup.
+            </div>
+
+            <!-- Specialties & Capabilities -->
+            <div class="section-heading">2. Bryce's Famous Cuts &amp; Capabilities</div>
+            <p style="font-size: 14px; color: var(--text-muted); margin-top: 0;">
+                There is nothing like the peace of mind that comes from knowing you had a hand in the meat sitting on your family's dinner table. Every animal is processed in a spotless, well-maintained work area and walk-in freezer with commercial-grade packing.
+            </p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <strong>Signature Sausages &amp; Custom Cuts</strong>
+                    <ul>
+                        <li><strong>Bryce's Famous Jalapeño Breakfast Sausage</strong> (locally sourced spices)</li>
+                        <li><strong>Smacking Summer Sausage</strong> &amp; custom smoked meats</li>
+                        <li><strong>Hamburger-Style Ground Meats</strong> &amp; pure ground venison</li>
+                        <li><strong>Prime Steaks, Flanks &amp; Roasts</strong> tailored to your family's table</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <strong>Species We Process</strong>
+                    While <strong>White-Tailed Deer (Venison)</strong> is our core specialty, we are fully equipped to handle:
+                    <ul>
+                        <li>Wild Game &amp; Feral Hog / Domestic Pig</li>
+                        <li>Beef (Cattle)</li>
+                        <li>Poultry (Chickens, Turkeys &amp; more)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Zero-Tracking Privacy Guarantee -->
+            <div class="privacy-callout">
+                <strong>Zero-Tracking Privacy Guarantee</strong>
+                "We're here for the meats—not the information off your phone." This portal uses zero tracking cookies, collects no IP addresses or device data, and never stores payment cards. We only ask for the basic shop intake details needed to tag and process your animal.
+            </div>
+        </div>
+
+        <!-- Footer & Copyright -->
+        <footer>
+            <div style="margin-bottom: 10px;">
+                <strong>Inquiries &amp; Site Master Contact:</strong><br>
+                <div class="contact-links">
+                    <a href="mailto:bna@bandaprocessing.com">bna@bandaprocessing.com</a> |
+                    <a href="mailto:team@bandaprocessing.com">team@bandaprocessing.com</a> |
+                    <a href="mailto:contact@bandaprocessing.com">contact@bandaprocessing.com</a>
+                </div>
+            </div>
+            <div>
+                Published under the direction of <strong>Bryce Michalak</strong>, Founder of B and A Processing.<br>
+                Copyright &copy; October 1, 2026 B and A Processing. All Rights Reserved.
+            </div>
+        </footer>
+    </main>
+
+    <!-- LAYER 7: LOCAL CLIPBOARD SCRIPT (ZERO EXTERNAL TRACKING) -->
+    <script>
+        function copyZelle() {
+            const zellePhone = "470-439-4035";
+            navigator.clipboard.writeText(zellePhone).then(function() {
+                const btn = document.getElementById("zelleBtn");
+                const status = document.getElementById("zelleStatus");
+                btn.textContent = "Copied: " + zellePhone;
+                status.innerHTML = "<strong>Phone # copied!</strong> Open your bank's Zelle app and paste.";
+            });
+        }
+    </script>
+</body>
+</html>
